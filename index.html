@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>썰풀이 게스트 초대장 · Ar-Ka</title>
+<meta name="description" content="다시 돌아온 썰풀이 — 당신의 이야기를 듣고 싶어요. Your story deserves a quiet table and a listening ear.">
+
+<!-- 링크 미리보기(카카오톡·페이스북·메신저)용 정보 -->
+<!-- 커버 이미지를 og.png 라는 이름으로 이 파일 옆에 올린 뒤, 아래 [사용자명]/[저장소명]을 실제 주소로 바꿔 주세요 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="썰풀이 게스트 초대장 · 당신의 이야기를 듣고 싶어요">
+<meta property="og:description" content="သင့်ရဲ့ ဇာတ်လမ်းလေးကို နားထောင်ချင်ပါတယ် · Ar-Ka">
+<meta property="og:image" content="https://[사용자명].github.io/[저장소명]/og.png">
+<meta property="og:url" content="https://[사용자명].github.io/[저장소명]/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap">
+
+<style>
+  :root {
+    --navy: #1F2A33;
+    --navy-2: #2A3742;
+    --paper: #F6F1E7;
+    --sand: #EDE6D8;
+    --line: #D8CFBE;
+    --ink: #2B3238;
+    --soft: #5F6468;
+    --terra: #A85A2E;
+    --glow: #E8C9A0;
+    --mist: #C9CFC9;
+    --serif: 'Gowun Batang', Georgia, serif;
+    --sans: 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+    --my: 'Noto Sans Myanmar', 'Myanmar Text', 'Myanmar MN', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  body.lang-my { font-family: var(--my); line-height: 1.95; }
+  body.lang-my .serif { font-family: var(--my); }
+
+  /* 언어 전환: lang-ko 일 때 .my 숨김, lang-my 일 때 .ko 숨김 */
+  body.lang-ko .my, body.lang-my .ko { display: none !important; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .serif { font-family: var(--serif); }
+  .eyebrow {
+    margin: 0 0 12px;
+    font-family: var(--sans);
+    font-size: 13px; font-weight: 700; letter-spacing: 0.22em;
+    color: var(--terra);
+  }
+  body.lang-my .eyebrow { letter-spacing: 0.04em; font-family: var(--my); font-size: 14px; }
+
+  /* 상단 언어 버튼 */
+  .langbar {
+    position: fixed; top: 14px; right: 14px; z-index: 10;
+    display: flex; gap: 4px; padding: 4px;
+    background: rgba(31, 42, 51, 0.88);
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+  .langbar button {
+    border: 0; cursor: pointer;
+    min-height: 40px; padding: 0 16px;
+    border-radius: 999px;
+    background: transparent; color: var(--mist);
+    font: 500 14px var(--sans);
+  }
+  .langbar button.my-btn { font-family: var(--my); }
+  .langbar button[aria-pressed="true"] { background: var(--glow); color: var(--navy); font-weight: 700; }
+
+  /* 히어로 */
+  .hero {
+    position: relative; overflow: hidden;
+    background: var(--navy); color: var(--paper);
+    min-height: 92vh;
+    display: flex; align-items: center;
+    padding: 96px 0 72px;
+  }
+  .hero::before {
+    content: ""; position: absolute; right: -180px; top: -180px;
+    width: 520px; height: 520px; border-radius: 50%;
+    background: #C8794A; opacity: 0.16;
+  }
+  .hero .wrap { position: relative; }
+  .hero .eyebrow { color: var(--glow); }
+  .hero svg { display: block; margin: 8px 0 28px; }
+  .hero h1 {
+    margin: 0 0 24px;
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(44px, 11vw, 76px);
+    line-height: 1.22; letter-spacing: -0.01em;
+    word-break: keep-all;
+  }
+  body.lang-my .hero h1 { font-family: var(--my); font-size: clamp(30px, 7.4vw, 50px); line-height: 1.7; }
+  .hero .sub-en {
+    margin: 0 0 6px;
+    font-family: var(--serif); font-style: italic;
+    font-size: 19px; color: var(--mist);
+  }
+  .hero .sub-alt { margin: 0; font-size: 18px; color: var(--mist); }
+  .hero .sub-alt.my-font { font-family: var(--my); line-height: 1.9; }
+  .hero .sub-alt.ko-font { font-family: var(--serif); }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 52px; padding: 0 26px;
+    border-radius: 999px;
+    font-weight: 700; font-size: 16px;
+    text-decoration: none;
+  }
+  .btn-primary { background: var(--glow); color: var(--navy); }
+  .btn-ghost { border: 1.5px solid #4A5864; color: var(--paper); }
+  .btn:focus-visible, .langbar button:focus-visible { outline: 3px solid var(--glow); outline-offset: 3px; }
+
+  /* 섹션 공통 */
+  section.block { padding: 88px 0; }
+  section.block.alt { background: var(--sand); }
+  section.block.dark { background: var(--navy); color: var(--paper); }
+  section.block.dark .eyebrow { color: var(--glow); }
+  h2 {
+    margin: 0 0 28px;
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(30px, 6.6vw, 42px);
+    line-height: 1.3; color: var(--navy);
+    word-break: keep-all;
+  }
+  body.lang-my h2 { font-family: var(--my); font-size: clamp(24px, 5.4vw, 32px); line-height: 1.7; }
+  section.block.dark h2 { color: var(--paper); }
+
+  /* 편지 */
+  .letter p {
+    margin: 0 0 22px;
+    font-family: var(--serif);
+    font-size: 19px; line-height: 2;
+    word-break: keep-all;
+  }
+  body.lang-my .letter p { font-family: var(--my); font-size: 17px; }
+  .sign { text-align: right; color: var(--soft); font-family: var(--serif); font-size: 17px; margin-top: 8px; }
+
+  /* 카드 */
+  .cards { display: grid; gap: 16px; }
+  .card {
+    background: var(--paper);
+    border-radius: 18px;
+    padding: 26px 26px 24px;
+  }
+  .card h3 {
+    margin: 0 0 8px;
+    font-family: var(--serif); font-size: 22px; color: var(--navy);
+  }
+  body.lang-my .card h3 { font-family: var(--my); font-size: 19px; line-height: 1.7; }
+  .card p { margin: 0; color: var(--soft); font-size: 16px; }
+  .prev-ep { margin: 28px 0 0; font-size: 14px; color: var(--soft); }
+
+  /* 게스트 */
+  .guests { display: grid; gap: 22px; margin-bottom: 36px; }
+  .guest { border-left: 3px solid var(--glow); padding: 2px 0 2px 20px; }
+  .guest h3 { margin: 0 0 2px; font-size: 19px; color: var(--paper); }
+  .guest p { margin: 0; color: var(--mist); font-size: 15px; }
+  .whisper {
+    margin: 0;
+    font-family: var(--serif); font-size: 19px; line-height: 1.9;
+    color: var(--glow);
+  }
+  body.lang-my .whisper { font-family: var(--my); font-size: 17px; }
+
+  /* 질문 */
+  .questions { list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 14px; }
+  .questions li {
+    font-family: var(--serif);
+    font-size: 20px; line-height: 1.6; color: var(--ink);
+    padding: 18px 22px;
+    background: #FBF8F1;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    word-break: keep-all;
+  }
+  body.lang-my .questions li { font-family: var(--my); font-size: 17px; line-height: 1.85; }
+  .note { font-size: 15px; color: var(--soft); margin: 0; }
+
+  /* 진행 표 */
+  .info { display: grid; border-top: 1px solid var(--line); }
+  .info-row {
+    display: grid; grid-template-columns: 108px 1fr; gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  body.lang-my .info-row { grid-template-columns: 128px 1fr; }
+  .info-row dt { font-weight: 700; color: var(--navy); font-size: 15px; }
+  .info-row dd { margin: 0; font-size: 16px; }
+
+  /* 약속 */
+  .promises { display: grid; gap: 28px; margin: 0; padding: 0; list-style: none; }
+  .promises li { display: grid; grid-template-columns: 64px 1fr; gap: 12px; align-items: baseline; border-top: 1px solid #3A4651; padding-top: 20px; }
+  .promises .num { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--glow); }
+  .promises p { margin: 0; font-size: 17px; color: var(--paper); }
+
+  /* 마무리 */
+  .closing { background: var(--terra); color: var(--paper); text-align: center; padding: 96px 0 104px; }
+  .closing h2 { color: var(--paper); margin-bottom: 18px; }
+  .closing .en { font-family: var(--serif); font-style: italic; color: #F6E3CF; margin: 0 0 4px; }
+  .closing .alt { color: #F6E3CF; margin: 0 0 40px; }
+  .closing .alt.my-font { font-family: var(--my); line-height: 1.9; }
+  .closing .alt.ko-font { font-family: var(--serif); }
+  .closing .btn-primary { background: var(--paper); color: var(--terra); }
+  .contact { margin: 24px 0 0; font-size: 15px; color: #F6E3CF; }
+
+  footer { background: var(--navy); color: #9AA3A8; text-align: center; font-size: 13px; padding: 28px 24px; }
+
+  /* 스크롤 등장 효과 */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  @media (min-width: 720px) {
+    .cards { grid-template-columns: repeat(3, 1fr); }
+    .guests { grid-template-columns: 1fr 1fr; }
+    .questions { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+
+<body class="lang-ko">
+
+<div class="langbar" role="group" aria-label="Language">
+  <button type="button" data-set-lang="ko" aria-pressed="true">한국어</button>
+  <button type="button" data-set-lang="my" class="my-btn" aria-pressed="false">မြန်မာ</button>
+</div>
+
+<!-- ───────── 히어로 ───────── -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow"><span class="ko">AR-KA · 다시 돌아온 썰풀이</span><span class="my">AR-KA · SSEOL-PULI ပြန်လာပါပြီ</span></p>
+    <svg width="176" height="96" viewBox="0 0 220 120" fill="none" stroke="#E8C9A0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20 62h56v22a20 20 0 0 1-20 20H40a20 20 0 0 1-20-20z"/>
+      <path d="M76 70h8a10 10 0 0 1 0 20h-6"/>
+      <path d="M36 50c-6-8 6-14 0-24M54 50c-6-8 6-14 0-24"/>
+      <path d="M200 62h-56v22a20 20 0 0 0 20 20h16a20 20 0 0 0 20-20z"/>
+      <path d="M144 70h-8a10 10 0 0 0 0 20h6"/>
+      <path d="M166 50c-6-8 6-14 0-24M184 50c-6-8 6-14 0-24"/>
+      <path d="M10 112h200"/>
+    </svg>
+    <h1>
+      <span class="ko">당신의 이야기를<br>듣고 싶어요</span>
+      <span class="my">သင့်ရဲ့ ဇာတ်လမ်းလေးကို<br>နားထောင်ချင်ပါတယ်</span>
+    </h1>
+    <p class="sub-en">Your story deserves a quiet table and a listening ear.</p>
+    <p class="sub-alt my-font ko">သင့်ရဲ့ ဇာတ်လမ်းလေးကို နားထောင်ချင်ပါတယ်</p>
+    <p class="sub-alt ko-font my">당신의 이야기를 듣고 싶어요</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#join"><span class="ko">함께하기</span><span class="my">ပါဝင်မယ်</span></a>
+      <a class="btn btn-ghost" href="#letter"><span class="ko">초대의 글 읽기</span><span class="my">ဖိတ်စာ ဖတ်မယ်</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ───────── 초대의 글 ───────── -->
+<section class="block" id="letter">
+  <div class="wrap letter reveal">
+    <p class="eyebrow"><span class="ko">초대의 글</span><span class="my">ဖိတ်ကြားလွှာ</span></p>
+    <div class="ko">
+      <p>처음 한국에 도착한 날을 기억하나요?<br>낯선 공항의 공기, 읽히지 않던 간판, 혼자 삼킨 첫 끼의 맛.</p>
+      <p>그날부터 지금까지, 당신은 수많은 계절을 건너왔을 거예요. 아무도 묻지 않아서 꺼내지 못했던 이야기들도 마음 한편에 조용히 쌓여 있겠지요.</p>
+      <p>잠시 멈춰 있던 썰풀이를 다시 시작하려고 해요. 그 이야기를 천천히 풀어놓을 자리를, 다시 마련했어요.</p>
+      <p class="sign">— Ar-Ka 드림</p>
+    </div>
+    <div class="my">
+      <p>ကိုရီးယားကို ပထမဆုံး ရောက်လာခဲ့တဲ့နေ့ကို မှတ်မိသေးလား။<br>စိမ်းသက်တဲ့ လေဆိပ်က လေထု၊ ဖတ်လို့မရသေးတဲ့ ဆိုင်းဘုတ်တွေ၊ တစ်ယောက်တည်း စားခဲ့ရတဲ့ ပထမဆုံး ထမင်းတစ်နပ်ရဲ့ အရသာ။</p>
+      <p>အဲဒီနေ့ကနေ ဒီနေ့အထိ ရာသီတွေ အများကြီးကို ဖြတ်ကျော်လာခဲ့ပြီပေါ့။ ဘယ်သူမှ မမေးလို့ ပြောမထွက်ခဲ့ရတဲ့ ဇာတ်လမ်းလေးတွေလည်း ရင်ထဲမှာ တိတ်တိတ်လေး စုပုံနေမှာပါ။</p>
+      <p>ခဏရပ်ထားခဲ့တဲ့ Sseol-puli ကို ပြန်စချင်ပါတယ်။ အဲဒီဇာတ်လမ်းတွေကို အေးအေးဆေးဆေး ဖွင့်ပြောနိုင်မယ့် နေရာလေးကို ပြန်ပြင်ဆင်ထားပါတယ်။</p>
+      <p class="sign">— Ar-Ka</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── 썰풀이란 ───────── -->
+<section class="block alt">
+  <div class="wrap reveal">
+    <p class="eyebrow"><span class="ko">썰풀이란?</span><span class="my">Sseol-puli ဆိုတာ</span></p>
+    <h2><span class="ko">마주 앉아, 삶을 풀어놓는 대화</span><span class="my">မျက်နှာချင်းဆိုင် ထိုင်ပြီး ဘဝအကြောင်း ရင်ဖွင့်ကြမယ်</span></h2>
+    <div class="cards">
+      <div class="card">
+        <h3><span class="ko">편안한 미얀마어 대화</span><span class="my">မြန်မာလို အေးအေးဆေးဆေး</span></h3>
+        <p><span class="ko">정해진 대본 없이, 차 한 잔 앞에 두고 모국어로 편하게 이야기해요.</span><span class="my">ကြိုရေးထားတဲ့ script မပါဘဲ လက်ဖက်ရည်တစ်ခွက်နဲ့ မိခင်ဘာသာစကားနဲ့ပဲ ပြောကြမယ်။</span></p>
+      </div>
+      <div class="card">
+        <h3><span class="ko">행복과 성공, 그리고 나</span><span class="my">ပျော်ရွှင်မှု၊ အောင်မြင်မှုနဲ့ ကိုယ့်ကိုယ်ကိုယ်</span></h3>
+        <p><span class="ko">행복은 무엇인지, 과정과 결과 중 무엇이 중요한지. 삶의 질문을 함께 따라가요.</span><span class="my">ပျော်ရွှင်မှုဆိုတာ ဘာလဲ၊ ဖြတ်သန်းမှုနဲ့ ရလဒ် ဘာက ပိုအရေးကြီးလဲ — ဘဝမေးခွန်းတွေကို အတူလိုက်ရှာကြမယ်။</span></p>
+      </div>
+      <div class="card">
+        <h3><span class="ko">같은 길 위의 누군가에게</span><span class="my">လမ်းတူ လျှောက်နေသူတွေဆီ</span></h3>
+        <p><span class="ko">당신의 경험은 한국행을 꿈꾸는, 혹은 막 도착한 누군가에게 따뜻한 지도가 돼요.</span><span class="my">သင့်အတွေ့အကြုံက ကိုရီးယားကို လာဖို့ အိပ်မက်မက်နေသူ ဒါမှမဟုတ် အခုမှ ရောက်လာသူတွေအတွက် နွေးထွေးတဲ့ မြေပုံ ဖြစ်လာမှာပါ။</span></p>
+      </div>
+    </div>
+    <p class="prev-ep"><span class="ko">지난 이야기 · Ep.6 “As A PhD Student” — 성균관대학교 박사과정 Ko Min Htet Myint 편</span><span class="my">ပြီးခဲ့တဲ့ အပိုင်း · Ep.6 “As A PhD Student” — SKKU PhD ကျောင်းသား Ko Min Htet Myint</span></p>
+  </div>
+</section>
+
+<!-- ───────── 게스트 ───────── -->
+<section class="block dark">
+  <div class="wrap reveal">
+    <p class="eyebrow"><span class="ko">이런 분을 기다려요</span><span class="my">ဒီလိုလူတွေကို စောင့်နေပါတယ်</span></p>
+    <h2><span class="ko">한국에서 자신만의 계절을 살아낸 사람</span><span class="my">ကိုရီးယားမှာ ကိုယ်ပိုင်ရာသီတွေကို ဖြတ်သန်းခဲ့သူ</span></h2>
+    <div class="guests">
+      <div class="guest"><h3><span class="ko">유학생</span><span class="my">ကျောင်းသား/သူ</span></h3><p><span class="ko">어학당 · 학부 · 대학원 · 박사과정</span><span class="my">ဘာသာစကားကျောင်း · ဘွဲ့ကြို · ဘွဲ့လွန် · PhD</span></p></div>
+      <div class="guest"><h3><span class="ko">일하며 살아가는 분</span><span class="my">အလုပ်လုပ်ရင်း နေထိုင်သူ</span></h3><p><span class="ko">회사원 · 연구원 · 현장에서 하루를 버티는 모든 분</span><span class="my">ရုံးဝန်ထမ်း · သုတေသီ · နေ့စဉ် ကြိုးစားနေသူအားလုံး</span></p></div>
+      <div class="guest"><h3><span class="ko">새로운 길을 고민 중인 분</span><span class="my">လမ်းသစ်ကို စဉ်းစားနေသူ</span></h3><p><span class="ko">진학, 취업, 귀국 사이에 서 있는 분</span><span class="my">ပညာဆက်သင်မလား၊ အလုပ်လုပ်မလား၊ ပြန်မလား</span></p></div>
+      <div class="guest"><h3><span class="ko">조용히 꿈을 키우는 분</span><span class="my">တိတ်တဆိတ် အိပ်မက်ကို ပြုစုနေသူ</span></h3><p><span class="ko">창작, 사업, 봉사 — 작지만 단단한 무언가를 하는 분</span><span class="my">ဖန်တီးမှု၊ စီးပွားရေး၊ ပရဟိတ — သေးငယ်ပေမယ့် ခိုင်မာတဲ့ တစ်ခုခု</span></p></div>
+    </div>
+    <p class="whisper"><span class="ko">특별한 사람이 아니어도 괜찮아요.<br>평범한 하루가 가장 깊은 이야기가 되니까요.</span><span class="my">ထူးခြားတဲ့သူ ဖြစ်စရာ မလိုပါဘူး။<br>သာမန်နေ့ရက်တွေကပဲ အနက်ရှိုင်းဆုံး ဇာတ်လမ်း ဖြစ်လာတတ်လို့ပါ။</span></p>
+  </div>
+</section>
+
+<!-- ───────── 질문 ───────── -->
+<section class="block">
+  <div class="wrap reveal">
+    <p class="eyebrow"><span class="ko">이런 질문을 건넬 거예요</span><span class="my">ဒီလိုမေးခွန်းတွေ မေးပါမယ်</span></p>
+    <h2><span class="ko">정답이 없어서, 더 듣고 싶은 이야기</span><span class="my">အဖြေမှန် မရှိလို့ ပိုနားထောင်ချင်တဲ့ ဇာတ်လမ်း</span></h2>
+    <ul class="questions">
+      <li><span class="ko">“당신에게 행복은 어떤 모양인가요?”</span><span class="my">“သင့်အတွက် ပျော်ရွှင်မှုက ဘယ်လိုပုံစံလဲ။”</span></li>
+      <li><span class="ko">“한국에 와서 처음 울었던 날은?”</span><span class="my">“ကိုရီးယားရောက်ပြီး ပထမဆုံး ငိုခဲ့တဲ့နေ့က ဘယ်နေ့လဲ။”</span></li>
+      <li><span class="ko">“과정과 결과, 무엇을 믿고 걸어왔나요?”</span><span class="my">“ဖြတ်သန်းမှုနဲ့ ရလဒ် — ဘာကို ယုံကြည်ပြီး လျှောက်လာခဲ့လဲ။”</span></li>
+      <li><span class="ko">“요즘 밤에 가장 오래 붙잡는 걱정은?”</span><span class="my">“အခုတလော ညဘက် အကြာဆုံး တွေးနေမိတဲ့ စိုးရိမ်မှုက ဘာလဲ။”</span></li>
+      <li><span class="ko">“포기하고 싶던 순간, 붙잡아 준 것은?”</span><span class="my">“လက်လျှော့ချင်ခဲ့တဲ့အချိန်မှာ ဘာက ဆွဲထားပေးခဲ့လဲ။”</span></li>
+      <li><span class="ko">“10년 전의 나에게 건네고 싶은 한마디”</span><span class="my">“လွန်ခဲ့တဲ့ ၁၀ နှစ်က ကိုယ့်ကိုယ်ကို ပြောချင်တဲ့ စကားတစ်ခွန်း”</span></li>
+    </ul>
+    <p class="note"><span class="ko">질문지는 촬영 전에 미리 보내드려요. 답하고 싶지 않은 질문은 언제든 빼도 괜찮아요.</span><span class="my">မေးခွန်းတွေကို ရိုက်ကူးခင် ကြိုပို့ပေးပါမယ်။ မဖြေချင်တဲ့ မေးခွန်းကို အချိန်မရွေး ဖြုတ်လို့ရပါတယ်။</span></p>
+  </div>
+</section>
+
+<!-- ───────── 진행 방식 ───────── -->
+<section class="block alt">
+  <div class="wrap reveal">
+    <p class="eyebrow"><span class="ko">진행 방식</span><span class="my">အစီအစဉ် အသေးစိတ်</span></p>
+    <h2><span class="ko">이렇게 함께해요</span><span class="my">ဒီလို အတူလုပ်ကြမယ်</span></h2>
+    <!-- [ ] 부분을 실제 내용으로 바꿔 주세요 -->
+    <dl class="info">
+      <div class="info-row"><dt><span class="ko">형식</span><span class="my">ပုံစံ</span></dt><dd><span class="ko">1:1 토크 (팟캐스트형 영상)</span><span class="my">တစ်ယောက်နဲ့တစ်ယောက် စကားဝိုင်း (Podcast ပုံစံ ဗီဒီယို)</span></dd></div>
+      <div class="info-row"><dt><span class="ko">언어</span><span class="my">ဘာသာစကား</span></dt><dd><span class="ko">미얀마어 대화 (한국어·영어 자막)</span><span class="my">မြန်မာလို ပြောမယ် (ကိုရီးယား/အင်္ဂလိပ် စာတန်းထိုး)</span></dd></div>
+      <div class="info-row"><dt><span class="ko">촬영</span><span class="my">ရိုက်ကူးချိန်</span></dt><dd><span class="ko">약 [60]분 / 편집본 20–25분 내외</span><span class="my">[၆၀] မိနစ်ခန့် / တည်းဖြတ်ပြီး ၂၀–၂၅ မိနစ်ခန့်</span></dd></div>
+      <div class="info-row"><dt><span class="ko">장소</span><span class="my">နေရာ</span></dt><dd><span class="ko">[카페 / 스튜디오 / 학교 및 공원]</span><span class="my">[ ]</span></dd></div>
+      <div class="info-row"><dt><span class="ko">일정</span><span class="my">ရက်</span></dt><dd><span class="ko">편한 날로 협의</span><span class="my">အဆင်ပြေတဲ့ရက်ကို ညှိပါမယ်</span></dd></div>
+      <div class="info-row"><dt><span class="ko">공개</span><span class="my">တင်မယ့်နေရာ</span></dt><dd>YouTube “Ar-Ka” · Facebook “Ah-Ka’s Log”</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ───────── 약속 ───────── -->
+<section class="block dark">
+  <div class="wrap reveal">
+    <p class="eyebrow"><span class="ko">Ar-Ka의 약속</span><span class="my">Ar-Ka ရဲ့ ကတိ</span></p>
+    <h2><span class="ko">당신의 이야기는, 끝까지 당신의 것</span><span class="my">သင့်ဇာတ်လမ်းက အဆုံးထိ သင့်ပိုင်ပါ</span></h2>
+    <ul class="promises">
+      <li><span class="num">01</span><p><span class="ko">업로드 전, 편집본을 먼저 보여드려요.</span><span class="my">မတင်ခင် တည်းဖြတ်ပြီးသား ဗီဒီယိုကို အရင်ပြပါမယ်။</span></p></li>
+      <li><span class="num">02</span><p><span class="ko">원하지 않는 장면은 언제든 빼드려요.</span><span class="my">မထည့်စေချင်တဲ့ အပိုင်းတွေကို အချိန်မရွေး ဖြုတ်ပေးပါမယ်။</span></p></li>
+      <li><span class="num">03</span><p><span class="ko">작은 감사의 마음도 준비할게요.</span><span class="my">ကျေးဇူးတင်တဲ့အနေနဲ့ လက်ဆောင်လေးလည်း ပြင်ဆင်ထားပါမယ်</span></p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ───────── 마무리 / 연락 ───────── -->
+<section class="closing" id="join">
+  <div class="wrap reveal">
+    <h2>
+      <span class="ko">당신의 어제가,<br>누군가의 내일이 됩니다.</span>
+      <span class="my">သင့်ရဲ့ မနေ့က ဇာတ်လမ်းဟာ<br>တစ်စုံတစ်ယောက်ရဲ့ မနက်ဖြန် ဖြစ်လာနိုင်ပါတယ်။</span>
+    </h2>
+    <p class="en">Your yesterday may become someone’s tomorrow.</p>
+    <p class="alt my-font ko">သင့်ရဲ့ မနေ့က ဇာတ်လမ်းဟာ တစ်စုံတစ်ယောက်ရဲ့ မနက်ဖြန် ဖြစ်လာနိုင်ပါတယ်။</p>
+    <p class="alt ko-font my">당신의 어제가, 누군가의 내일이 됩니다.</p>
+    <!-- 아래 href의 [ ] 부분을 실제 페이스북 페이지 메시지 주소로 바꿔 주세요. 예: https://m.me/페이지아이디 -->
+    <a class="btn btn-primary" href="https://m.me/[페이지ID]" target="_blank" rel="noopener">
+      <span class="ko">Facebook 메시지로 참여하기</span><span class="my">Facebook Message နဲ့ ဆက်သွယ်မယ်</span>
+    </a>
+    <p class="contact"><span class="ko">편하게 연락 주세요.</span><span class="my">ဒါမှမဟုတ် [Email / KakaoTalk ID] ကို ဆက်သွယ်နိုင်ပါတယ်။</span></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  썰풀이 · Sseol-puli — YouTube “Ar-Ka” · Facebook “Ah-Ka’s Log”
+</footer>
+
+<script>
+  (function () {
+    var body = document.body;
+    var buttons = document.querySelectorAll('[data-set-lang]');
+
+    function setLang(lang) {
+      body.classList.remove('lang-ko', 'lang-my');
+      body.classList.add('lang-' + lang);
+      document.documentElement.lang = lang;
+      buttons.forEach(function (b) {
+        b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+      });
+      try {
+        var url = new URL(window.location.href);
+        url.searchParams.set('lang', lang);
+        history.replaceState(null, '', url.toString());
+      } catch (e) {}
+    }
+
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
+    });
+
+    // ?lang=my 로 열면 미얀마어로 시작
+    var start = 'ko';
+    try {
+      var q = new URLSearchParams(window.location.search).get('lang');
+      if (q === 'my' || q === 'ko') start = q;
+    } catch (e) {}
+    setLang(start);
+
+    // 스크롤 등장 효과
+    var items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    } else {
+      items.forEach(function (el) { el.classList.add('in'); });
+    }
+  })();
+</script>
+</body>
+</html>
